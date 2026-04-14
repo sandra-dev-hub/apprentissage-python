@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soutra-Pharm | Stock</title>
+</head>
+<body>
+    <h1>Médicaments en Stock (Bafoussam)</h1>
+    <table border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+        </tr>
+        {% for m in liste %}
+        <tr {% if m.stock_disponible == 0 %} style="color: red;" {% endif %}>
+            <td>{{ m.nom }}</td>
+            <td>{{ m.prix }} FCFA</td>
+            <td>{{ m.stock_disponible }} 
+                {% if m.stock_disponible == 0 %} (RUPTURE !) {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
